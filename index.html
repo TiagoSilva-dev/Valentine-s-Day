@@ -53,13 +53,15 @@
   <button id="no-button" onmouseover="moveButton()">Não</button>
 
   <div id="video-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/HEXWRTEbj1I?controls=0&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe id="video-iframe" src="https://www.youtube.com/embed/HEXWRTEbj1I?controls=0&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 
   <script>
     function changeTitle() {
       document.getElementById("title").innerHTML = "Beleza, mas e agora um cházinho rola?";
-      document.getElementById("yes-button").onclick = showVideo;
+      document.getElementById("yes-button").style.display = "none";
+      document.getElementById("no-button").style.display = "none";
+      showVideo();
     }
 
     function moveButton() {
@@ -72,7 +74,9 @@
 
     function showVideo() {
       var videoContainer = document.getElementById("video-container");
+      var videoIframe = document.getElementById("video-iframe");
       videoContainer.style.display = "block";
+      videoIframe.src += "&autoplay=1";
     }
   </script>
 </body>
