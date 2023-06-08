@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Brenda quer namorar comigo?</title>
+  <style>
+    body {
+      background-color: #ffe6f2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    
+    h1 {
+      color: #cc0066;
+      font-size: 24px;
+    }
+    
+    button {
+      background-color: #cc0066;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #ff99cc;
+    }
+    
+    #no-button {
+      position: absolute;
+    }
+    
+    #video-container {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    #video-container iframe {
+      width: 560px;
+      height: 315px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">Brenda quer namorar comigo?</h1>
+  <button id="yes-button" onclick="changeTitle()">Sim</button>
+  <button id="no-button" onmouseover="moveButton()">Não</button>
+
+  <div id="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/HEXWRTEbj1I?controls=0&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    function changeTitle() {
+      document.getElementById("title").innerHTML = "Beleza, mas e agora um cházinho rola?";
+      document.getElementById("yes-button").onclick = showVideo;
+    }
+
+    function moveButton() {
+      var button = document.getElementById("no-button");
+      var randomX = Math.floor(Math.random() * window.innerWidth);
+      var randomY = Math.floor(Math.random() * window.innerHeight);
+      button.style.left = randomX + "px";
+      button.style.top = randomY + "px";
+    }
+
+    function showVideo() {
+      var videoContainer = document.getElementById("video-container");
+      videoContainer.style.display = "block";
+    }
+  </script>
+</body>
+</html>
