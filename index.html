@@ -72,7 +72,9 @@
 
     function showVideo() {
       var videoContainer = document.getElementById("video-container");
+      var videoIframe = document.getElementById("video-iframe");
       videoContainer.style.display = "block";
+      videoIframe.src += "&autoplay=1";
     }
   </script>
 </body>
